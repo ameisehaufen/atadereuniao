@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{geometry}
+\geometry{
+	left=30mm,
+	right=15mm,
+	bottom=20mm,
+	top=35mm,
+	headheight=2cm,
+	footskip=1cm
+}
+\usepackage{setspace,lineno,hyperref}
+\usepackage[brazil]{babel}
+\usepackage{microtype} % Para corrigir problemas de justificação errada no texto
+\modulolinenumbers[5]
+
+% Para TODOS
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{graphicx,url}
+\pgfplotsset{compat=1.15} 
+\usepackage{setspace}
+\usepackage{multirow} % para habilitar multilinhas mescladas em tabelas
+\usepackage{titleref}
+\usepackage{booktabs}
+\usepackage[section]{placeins}
+\usepackage{pdflscape} % para habilitar paisagem landscape
+\usepackage{fontawesome} % para simbolos diferentes
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{xcolor} % para colorir textos
+\usepackage{enumitem}
+\usepackage{lastpage}
+%% Para a nr de capitulos diferente
+\usepackage{titlesec}
+% Para usar o array de itens
+\usepackage{listofitems}
+%  \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.}{0.5em}{}
+\renewcommand{\thesection}{\arabic{section}}
+%\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+%% Para configurar as referências
+\usepackage[style=numeric-comp,natbib=true]{biblatex}
+\AtEveryBibitem{%
+	\clearfield{issn} % Remove issn
+	\clearfield{doi} % Remove doi
+	\ifentrytype{online}{}{% Remove url except for @online
+		\clearfield{url}
+	}
+}
+\bibliography{references}

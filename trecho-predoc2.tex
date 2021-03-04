@@ -1,0 +1,66 @@
+
+%\usepackage{datenumber}
+%\setdate{\Ano}{\MesDigito}{\Dia}       % date of the OP
+%\setstartyear{\thedateyear} % count days from here
+\newcommand{\gdh}{\Dia\Hora\Mes\Ano\Fuso}%
+\title{\titulo}
+\date{\Dia/\MesDigito/\Ano}
+% Header
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\chead{\noindent\fcolorbox{red}{white}{\parbox{\dimexpr \linewidth-2\fboxsep-2\fboxrule}{%
+   	\centering{\color{red}{\textbf{INFORMAÇÃO DE P\&D - ACESSO RESTRITO}\\
+   			§1º do Art. 7º da Lei nº 12.527, de 18 de novembro de 2011\\
+   			Inciso II do Art. 6º do Decreto nº 7.724, de 16 de maio de 2012}}}}}
+\rfoot{\thepage\ de \pageref{LastPage}}
+\cfoot{\titulo\ em \gdh}
+
+% informações do PDF
+\usepackage{hyperref}
+\makeatletter
+\hypersetup{
+   	%pagebackref=true,
+   	pdftitle={\titulo com \participanteLocal em \gdh}, 
+   	pdfauthor={\participante[1,1]\ \participante[1,2] e \participante[2,1] e \participante[2,2]},
+   	pdfsubject={\titulo com \participanteLocal em \gdh sobre \nomeProjeto},
+   	pdfcreator={LaTeX with TexStudio},
+   	pdfkeywords={\participanteLocal}{Reunião}{Ata}, 
+   	colorlinks=true, % false: boxed links; true: colored links
+   	linkcolor=black, % color of internal links
+   	citecolor=black,	% color of links to bibliography
+   	filecolor=black, % color of file links
+   	urlcolor=black,
+   	bookmarksdepth=4
+}
+\makeatother
+
+\newcommand{\printSignatures}[1]{%
+	\vspace{5ex}
+    \foreachitem \z \in \participante{%
+        \setsepchar{,}%
+        \expandafter\readlist\expandafter\ThisSet\expandafter{\z}%
+        \noindent\parbox[t]{0.7\textwidth}{\raggedright
+            \centering
+            \textbf{\MakeUppercase{\ThisSet[2]} - \ThisSet[1]}\\
+            \ThisSet[4]
+        }
+        \parbox[t]{0.3\textwidth}{\raggedright
+            \fbox{
+                \begin{minipage}[c]{1\linewidth}
+                    \centering{\scriptsize{Assinatura}}\\
+                    \vspace{5ex}
+            \end{minipage}}
+        }
+    }
+}
+
+\newcommand{\printParticipantsList}[1]{
+    \foreachitem \z \in \participante{%
+        \setsepchar{,}%
+        \expandafter\readlist\expandafter\ThisSet\expandafter{\z}%
+        \item \ThisSet[1] \ThisSet[2] - \ThisSet[3] - \ThisSet[4]
+    }
+}

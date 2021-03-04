@@ -1,0 +1,45 @@
+\input{trecho-predoc.tex}
+\newcommand{\nomeProjeto}{Sistema de Acessos} % NOME DO PROJETO
+\setsepchar{\\/,/ }
+\readlist{\participante}{ % PARTICIPANTES
+	Cap, Fulano da \textbf{Silva}, Gerente do Projeto \nomeProjeto, Adj Divisão/Departamento\\
+	Civil, Ciclano da Silva, Gerente do Sistema, Adj Div/Depart
+}
+\setsepchar{,}
+\newcommand{\Numero}{007} % NR DA ATA
+\newcommand{\Dia}{01} % DATA
+\newcommand{\Mes}{FEV}
+\newcommand{\MesDigito}{02}
+\newcommand{\Ano}{21}
+\newcommand{\Hora}{0900} % HORA
+\newcommand{\Fuso}{P}
+\newcommand{\participanteLocal}{Departamento de Logística\ } % PARTICIPANTE EMPRESA/ORGAO
+\newcommand{\titulo}{Ata de Reunião\ Nr \Numero/\Ano\ Projeto/Departamento}% 
+
+
+\input{trecho-predoc2.tex}
+\begin{document}
+	\input{trecho-cabecalho.tex}
+	
+	\section{Objeto} % EDITAR OBJETO
+	Debate sobre a utilização do \nomeProjeto.
+	
+	\section{Local/Data} % EDITAR LOCAL AQUI
+	Em \gdh, presencialmente no endereço X.
+	
+	\input{trecho-participantes.tex}
+	
+	\section{Aspectos Relevantes}
+	
+	Em \gdh, foi realizada uma reunião em bla...
+	
+	Na reunião foi levantado...
+	
+	Por fim...
+	
+	\printbibliography
+	
+	% ASSINATURAS
+	\printSignatures
+	
+\end{document}
