@@ -2,7 +2,7 @@
 
 Ata para reuniões, simples, em latex para facilitar seu trabalho.
 
-[Veja o PDF de exemplo](example.pdf)
+[Veja o PDF de exemplo](Ata-MODELO_Publico.pdf)
 
 A Ata de reunião possui:
 - Cabeçalho especial para documento sigiloso;
